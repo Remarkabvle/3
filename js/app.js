@@ -38,7 +38,7 @@ function createCard(data) {
     data.forEach(product => {
         cards += `
         <div class="card">
-        <img class="card__image" data-id=${product.id} src="${product.image}" alt="">
+        <img class="card__image"  src="${product.image}" alt="">
             <div class="rating">
                 <h3>${product.rating.rate}</h3>
             </div>
@@ -48,7 +48,7 @@ function createCard(data) {
     </div>
 
            
-            <button class="card__btn">Buy now</button>
+            <button class="card__btn" data-id=${product.id}>Buy now</button>
         </div>
 
         `
@@ -57,7 +57,7 @@ function createCard(data) {
 }
 
 wrapper.addEventListener("click", (e)=>{
-    if(e.target.className === "card__image"){
+    if(e.target.className === "card__btn"){
         let id = e.target.dataset.id
         window.open(`./pages/products.html?id=${id}`, "_self")
     }
